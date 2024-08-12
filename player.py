@@ -1,7 +1,7 @@
 import pygame
 
-player_w = 45
-player_h = 60
+player_w = 25
+player_h = 48
 
 class Player():
     
@@ -12,7 +12,7 @@ class Player():
         # alienplayer = pygame.image.load('images/alienplayer.bmp')
         # playerplayer = pygame.image.load('images/player.bmp')
        
-        self.playerImage = pygame.image.load('images/player2.png')
+        self.playerImage = pygame.image.load('images/walkup1.gif')
         self.playerImage = pygame.transform.scale(self.playerImage, (player_w, player_h)) 
 
         #For testing - eventually will just be player
@@ -27,7 +27,7 @@ class Player():
         self.screen_rect = screen.get_rect()
         # new player at bottom of screen
         self.rect.centerx = self.screen_rect.centerx
-        self.rect.bottom = self.screen_rect.bottom
+        #self.rect.bottom = self.screen_rect.bottom
 
         # Store a decimal value for the player's center.
         self.center = float(self.rect.centerx)
@@ -48,21 +48,22 @@ class Player():
         #update player movement
         
         if self.moving_right and self.rect.right < self.screen_rect.right:
-            self.playerImage = pygame.image.load('images/right_player2.png')
+            self.playerImage = pygame.image.load('images/walkup1.gif')
             self.playerImage = pygame.transform.scale(self.playerImage, (player_w, player_h)) 
             self.center += self.game_settings.player_speed_factor
             #self.rect.centerx +=5
         elif self.moving_left and self.rect.left > 0:
-            self.playerImage = pygame.image.load('images/left_player2.png')
+            self.playerImage = pygame.image.load('images/walkup1.gif')
             self.playerImage = pygame.transform.scale(self.playerImage, (player_w, player_h)) 
             self.center -= self.game_settings.player_speed_factor
+            self.rect.draw
         elif self.moving_up:
-            self.rect.centery -=10
-            self.playerImage = pygame.image.load('images/back_player2.png')
+            self.rect.centery -=2.5
+            self.playerImage = pygame.image.load('images/walkup1.gif')
             self.playerImage = pygame.transform.scale(self.playerImage, (player_w, player_h))
         elif self.moving_down:
-            self.rect.centery +=10
-            self.playerImage = pygame.image.load('images/player2.png')
+            self.rect.centery +=2.5
+            self.playerImage = pygame.image.load('images/walkup1.gif')
             self.playerImage = pygame.transform.scale(self.playerImage, (player_w, player_h))
         self.rect.centerx = self.center
 

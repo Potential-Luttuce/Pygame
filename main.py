@@ -29,7 +29,7 @@ def run_game():
         gf.check_events(temple)
         temple.update()
         player.update()
-        gf.update_screen(game_settings, screen, temple, background)
+        gf.update_screen(game_settings, screen, player, background)
 
 
 run_game()

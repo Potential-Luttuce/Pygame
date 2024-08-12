@@ -11,4 +11,4 @@ class Settings():
         #self.bg_img = pygame.image.load('images/ship.bmp')
 
         # Ship settings
-        self.player_speed_factor = 5
+        self.player_speed_factor = 2.5
